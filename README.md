@@ -56,7 +56,6 @@ docker build -t phamquiluan/table-transformer -f Dockerfile .
 # train TSR
 docker run -it --shm-size 8G --gpus all \
   -v <data-path>:/code/data \
-  -v <output-path>:/code/output \
   -v phamquiluan/table-transformer \
   python3 main.py --data_root_dir /code/data --data_type structure
 ```
