@@ -2,7 +2,6 @@
 Copyright (C) 2021 Microsoft Corporation
 """
 import os
-import argparse
 from datetime import datetime
 import sys
 import random
@@ -39,33 +38,17 @@ from table_datasets import (
 )
 
 
-def get_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--model_load_path', help="The path to trained model")
-    parser.add_argument(
-        "--data_type",
-        choices=["detection", "structure"],
-        default="structure",
-    )
-    return parser.parse_args()
-
-
-
-def get_class_map(data_type):
-    if data_type == "structure":
-        class_map = {
-            "table": 0,
-            "table column": 1,
-            "table row": 2,
-            "table column header": 3,
-            "table projected row header": 4,
-            "table spanning cell": 5,
-            "no object": 6,
-        }
-    else:
-        class_map = {"table": 0, "table rotated": 1, "no object": 2}
+def get_class_map():
+    class_map = {
+        "table": 0,
+        "table column": 1,
+        "table row": 2,
+        "table column header": 3,
+        "table projected row header": 4,
+        "table spanning cell": 5,
+        "no object": 6,
+    }
     return class_map
-
 
 
 def get_model(args, device):
@@ -94,13 +77,9 @@ def get_model(args, device):
 # def main():
 class TableRecognizer:
     def __init__(self, checkpoint_path):
-        cmd_args = get_args().__dict__
         args = Args
 
         assert os.path.exists(checkpoint_path), checkpoint_path
-        for key in cmd_args:
-            val = cmd_args[key]
-            setattr(args, key, val)
         print(args.__dict__)
         print("-" * 100)
 
@@ -117,7 +96,7 @@ class TableRecognizer:
         self.model, _, self.postprocessors = get_model(args, self.device)
         self.model.eval()
 
-        class_map = get_class_map(args.data_type)
+        class_map = get_class_map()
 
         self.normalize = R.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 
