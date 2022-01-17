@@ -47,7 +47,7 @@ class Args:
     set_cost_bbox=5 # "L1 box coefficient in the matching cost"
     set_cost_giou=2 # "giou box coefficient in the matching cost"
     
-    device='cuda'
+    device='cuda:0'
     seed=42
     start_epoch=0
     num_workers=1
