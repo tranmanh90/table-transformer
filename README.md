@@ -1,10 +1,17 @@
 # PubTables-1M
 
 
-## Quick Start: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1CePiqlZfJa_tLTCzbatOKahWlyEAMgQa?usp=sharing)
+- Quick Start: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1CePiqlZfJa_tLTCzbatOKahWlyEAMgQa?usp=sharing)
+
+- Pre-trained weights: [Link](https://drive.google.com/drive/folders/1Ko4Trk48u99AAPNU41RcUKAoMP0BoDmU?usp=sharing)
 
 
-Pre-trained weights: [Link](https://drive.google.com/drive/folders/1Ko4Trk48u99AAPNU41RcUKAoMP0BoDmU?usp=sharing)
+## Update: 
+- Jan 17 2022: 
+  - Release pre-trained weights (11 epochs).
+  - Add docker training
+  - Add streamlit 
+
 
 ## For Docker users
 
@@ -30,5 +37,10 @@ pip install -U pip
 pip install -r requirements.txt
 ```
 
+## For streamlit users
+
+```bash 
+streamlit run app.py
+```
 
 [Original README](https://github.com/microsoft/table-transformer)
