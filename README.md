@@ -8,6 +8,8 @@
 
 
 ## Update: 
+- Jan 23 2022:
+  - Release pre-trained weights (20 epochs)
 - Jan 17 2022: 
   - Release pre-trained weights (11 epochs).
   - Add docker training
