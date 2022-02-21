@@ -26,7 +26,7 @@ docker build -t phamquiluan/table-transformer -f Dockerfile .
 # train TSR
 docker run -it --shm-size 8G --gpus all \
   -v <data-path>:/code/data \
-  -v phamquiluan/table-transformer \
+  phamquiluan/table-transformer \
   python3 main.py --data_root_dir /code/data --data_type structure
 ```
 
@@ -34,7 +34,7 @@ docker run -it --shm-size 8G --gpus all \
 ## Code Installation
 Create a virtual environment and activate it as follows
 ```
-python -m venv env; source env/bin/activate
+python3.7 -m venv env; source env/bin/activate
 pip install -U pip
 
 pip install -r requirements.txt
