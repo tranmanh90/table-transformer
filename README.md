@@ -15,6 +15,27 @@
   - Add docker training
   - Add streamlit 
 
+## Evaluation of pre-trained epoches
+
+
+### Epoch 7 - training on full training set
+```
+IoU metric: bbox
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.858
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.951
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.904
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.623
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.848
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.861
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.439
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.827
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.902
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.692
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.894
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.909
+pubmed: AP50: 0.951, AP75: 0.904, AP: 0.858, AR: 0.902
+```
+
 
 ## For Docker users
 
