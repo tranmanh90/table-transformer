@@ -73,11 +73,20 @@ def get_model(args, device):
     return model, criterion, postprocessors
 
 
+import json
+
+def load_json(json_path):
+    data = None
+    with open(json_path) as ref:
+        data = json.load(ref)
+    return data
+
 
 # def main():
 class TableRecognizer:
     def __init__(self, checkpoint_path):
-        args = Args
+        # args = Args
+        args = load_json("./src/structure_config.json")
 
         assert os.path.exists(checkpoint_path), checkpoint_path
         print(args.__dict__)
