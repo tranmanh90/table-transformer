@@ -8,10 +8,12 @@
 
 
 ## Update: 
+- Mar 1 2022: 
+  - Release pre-trained wrights (7 epochs on full training set)
 - Jan 23 2022:
-  - Release pre-trained weights (20 epochs)
+  - Release pre-trained weights (20 epochs on subset of training set)
 - Jan 17 2022: 
-  - Release pre-trained weights (11 epochs).
+  - Release pre-trained weights (11 epochs on subset of training set).
   - Add docker training
   - Add streamlit 
 
