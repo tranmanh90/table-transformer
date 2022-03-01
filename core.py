@@ -87,9 +87,11 @@ class TableRecognizer:
     def __init__(self, checkpoint_path):
         # args = Args
         args = load_json("./src/structure_config.json")
+        args = type("Args", (object, ), args)
 
         assert os.path.exists(checkpoint_path), checkpoint_path
         print(args.__dict__)
+        print(args)
         print("-" * 100)
 
         args.model_load_path = checkpoint_path
@@ -146,7 +148,7 @@ class TableRecognizer:
 
 
 def main():
-    m = TableRecognizer()
+    m = TableRecognizer("./output/model_8.pth")
     import glob
     from tqdm import tqdm
 
