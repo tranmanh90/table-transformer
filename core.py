@@ -26,7 +26,7 @@ from models import build_model
 import util.misc as utils
 import datasets.transforms as R
 
-from config import Args
+# from config import Args
 from table_datasets import (
     PDFTablesDataset,
     TightAnnotationCrop,
