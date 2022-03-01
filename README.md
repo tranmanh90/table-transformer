@@ -9,7 +9,8 @@
 
 ## Update: 
 - Mar 1 2022: 
-  - Release pre-trained wrights (7 epochs on full training set)
+  - Release pre-trained weights (7 epochs on full training set)
+  - Update core.py and google colab for new code
 - Jan 23 2022:
   - Release pre-trained weights (20 epochs on a small set of data)
 - Jan 17 2022: 
