@@ -8,7 +8,7 @@
 
 
 ## Update: 
-- Mar 7 2022: 
+- Mar 5 2022: 
   - Release pre-trained weights (12 epochs on full training set)
 - Mar 1 2022: 
   - Release pre-trained weights (7 epochs on full training set)
@@ -22,23 +22,23 @@
 
 ## Evaluation of pre-trained epoches
 
+### Epoch 12 - training on full training set
 
-### Epoch 7 - training on full training set
 ```
-IoU metric: bbox
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.858
- Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.951
- Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.904
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.623
- Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.848
- Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.861
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.439
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.827
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.902
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.692
- Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.894
- Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.909
-pubmed: AP50: 0.951, AP75: 0.904, AP: 0.858, AR: 0.902
+IoU metric: bbox                                                                                                                                 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.889                                                                                                                                                                                                 
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.963
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.931
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.671
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.882
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.892
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.442
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.847
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.925
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.729
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.917
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.930
+pubmed: AP50: 0.963, AP75: 0.931, AP: 0.889, AR: 0.925
 ```
 
 
