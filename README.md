@@ -8,6 +8,8 @@
 
 
 ## Update: 
+- Mar 7 2022: 
+  - Release pre-trained weights (12 epochs on full training set)
 - Mar 1 2022: 
   - Release pre-trained weights (7 epochs on full training set)
   - Update core.py and google colab for new code
