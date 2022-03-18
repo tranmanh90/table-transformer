@@ -21,7 +21,13 @@ from d2.detr import DetrDatasetMapper, add_detr_config
 from detectron2.checkpoint import DetectionCheckpointer
 from detectron2.config import get_cfg
 from detectron2.data import MetadataCatalog, build_detection_train_loader
-from detectron2.engine import AutogradProfiler, DefaultTrainer, default_argument_parser, default_setup, launch
+from detectron2.engine import (
+    AutogradProfiler,
+    DefaultTrainer,
+    default_argument_parser,
+    default_setup,
+    launch,
+)
 from detectron2.evaluation import COCOEvaluator, verify_results
 
 from detectron2.solver.build import maybe_add_gradient_clipping
@@ -102,7 +108,9 @@ class Trainer(DefaultTrainer):
 
         optimizer_type = cfg.SOLVER.OPTIMIZER
         if optimizer_type == "SGD":
-            optimizer = torch.optim.SGD(params, cfg.SOLVER.BASE_LR, momentum=cfg.SOLVER.MOMENTUM)
+            optimizer = torch.optim.SGD(
+                params, cfg.SOLVER.BASE_LR, momentum=cfg.SOLVER.MOMENTUM
+            )
         elif optimizer_type == "ADAMW":
             optimizer = torch.optim.AdamW(params, cfg.SOLVER.BASE_LR)
         else:
@@ -130,7 +138,9 @@ def main(args):
 
     if args.eval_only:
         model = Trainer.build_model(cfg)
-        DetectionCheckpointer(model, save_dir=cfg.OUTPUT_DIR).resume_or_load(cfg.MODEL.WEIGHTS, resume=args.resume)
+        DetectionCheckpointer(model, save_dir=cfg.OUTPUT_DIR).resume_or_load(
+            cfg.MODEL.WEIGHTS, resume=args.resume
+        )
         res = Trainer.test(cfg, model)
         if comm.is_main_process():
             verify_results(cfg, res)

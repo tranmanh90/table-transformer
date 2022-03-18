@@ -14,7 +14,7 @@ from PIL import Image
 import streamlit as st
 
 # fuck this line :)
-# reason 
+# reason
 # File "/home/research/table-transformer/detr/engine.py", line 12, in <module>
 #     import util.misc as utils
 #     ModuleNotFoundError: No module named 'util'
@@ -75,6 +75,7 @@ def get_model(args, device):
 
 import json
 
+
 def load_json(json_path):
     data = None
     with open(json_path) as ref:
@@ -87,7 +88,7 @@ class TableRecognizer:
     def __init__(self, checkpoint_path):
         # args = Args
         args = load_json("./src/structure_config.json")
-        args = type("Args", (object, ), args)
+        args = type("Args", (object,), args)
 
         assert os.path.exists(checkpoint_path), checkpoint_path
         print(args.__dict__)
@@ -111,9 +112,9 @@ class TableRecognizer:
 
         self.normalize = R.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 
-    def predict(self, image_path = None, debug=True, thresh=0.9):
+    def predict(self, image_path=None, debug=True, thresh=0.9):
         if image_path is None:
-            image_path = "/data/pubtables1m/PubTables1M-Structure-PASCAL-VOC/images/PMC514496_table_0.jpg"  
+            image_path = "/data/pubtables1m/PubTables1M-Structure-PASCAL-VOC/images/PMC514496_table_0.jpg"
 
         image = image_path
         if isinstance(image_path, str):
@@ -123,19 +124,22 @@ class TableRecognizer:
 
         img_tensor = self.normalize(F.to_tensor(image))[0]
         img_tensor = torch.unsqueeze(img_tensor, 0).to(self.device)
-   
+
         outputs = None
         with torch.no_grad():
             outputs = self.model(img_tensor)
 
-        image_size = torch.unsqueeze(torch.as_tensor([int(h), int(w)]), 0).to(self.device)
-        results = self.postprocessors['bbox'](outputs, image_size)[0]
+        image_size = torch.unsqueeze(torch.as_tensor([int(h), int(w)]), 0).to(
+            self.device
+        )
+        results = self.postprocessors["bbox"](outputs, image_size)[0]
         print(results)
 
         if debug is True:
             image = np.array(image)
             for idx, score in enumerate(results["scores"].tolist()):
-                if score < thresh: continue
+                if score < thresh:
+                    continue
 
                 xmin, ymin, xmax, ymax = list(map(int, results["boxes"][idx]))
 
@@ -152,10 +156,14 @@ def main():
     import glob
     from tqdm import tqdm
 
-    for image_path in tqdm(glob.glob("/data/pubtables1m/PubTables1M-Structure-PASCAL-VOC/images/*.jpg")[:100], total=100): 
+    for image_path in tqdm(
+        glob.glob("/data/pubtables1m/PubTables1M-Structure-PASCAL-VOC/images/*.jpg")[
+            :100
+        ],
+        total=100,
+    ):
         output = m.predict(image_path)
         cv2.imwrite(f"debug/{os.path.basename(image_path)}.jpg", output["debug_image"])
-
 
 
 if __name__ == "__main__":

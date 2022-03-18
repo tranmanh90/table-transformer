@@ -13,7 +13,6 @@ st.set_page_config(layout="wide")
 st.sidebar.header("TABLE RECOGNITION DEMO")
 
 
-
 uploaded_file = st.file_uploader(label="UPLOAD FILE", type=["png", "jpg", "jpeg"])
 
 image = None
@@ -22,7 +21,10 @@ if uploaded_file:
 
 
 from core import TableRecognizer
-m = TableRecognizer(checkpoint_path="/data/pubtables1m/PubTables1M-Structure-PASCAL-VOC/output/20220110130310/model_11.pth")
+
+m = TableRecognizer(
+    checkpoint_path="/data/pubtables1m/PubTables1M-Structure-PASCAL-VOC/output/20220110130310/model_11.pth"
+)
 
 
 def main():
