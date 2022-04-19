@@ -53,10 +53,8 @@ docker pull phamquiluan/table-transformer:latest
 docker build -t phamquiluan/table-transformer -f Dockerfile .
 
 # train TSR
-docker run -it --shm-size 8G --gpus all \
-  -v <data-path>:/code/data \
-  phamquiluan/table-transformer \
-  python3 main.py --data_root_dir /code/data --data_type structure
+docker run -it --shm-size 8G --gpus all -v /data/pubtables1m/PubTables1M-Structure-PASCAL-VOC:/code/data phamquiluan/table-transformer /bin/bash
+cd src; python3 main.py --data_root_dir /code/data --data_type structure
 ```
 
 
