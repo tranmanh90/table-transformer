@@ -1,12 +1,12 @@
 torch==2.0.1
 torchvision==0.15.2
-pandas==0.25.3
-opencv-python==4.7.0.72
+pandas
+opencv-python
 scikit-learn==0.21.3
 tqdm==4.39.0
 itkwidgets==0.23.1 
 cython
-numpy==1.19.3
+numpy
 scikit-image
 tensorboard==2.0.1
 tensorboardx==1.9
